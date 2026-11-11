@@ -14,6 +14,20 @@ app.get('/health', (req, res) => {
     res.json({ status: 'ok', service: 'HematKu API', timestamp: new Date() });
 });
 
+// Root Info
+app.get('/', (req, res) => {
+    res.json({
+        message: '🚀 HematKu Backend API is running on Vercel!',
+        status: 'online',
+        endpoints: {
+            health: '/health',
+            api: '/api',
+            auth: '/api/auth',
+            transactions: '/api/transactions'
+        }
+    });
+});
+
 // Mount API Routes
 app.use('/api', routes);
 

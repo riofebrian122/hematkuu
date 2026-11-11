@@ -1,9 +1,12 @@
 // =================================================================
 // HEMATKU - API CLIENT
-// Menangani semua komunikasi HTTP ke Backend (Proxy ke port 3000)
+// Terhubung langsung ke Backend Vercel: https://hematkuu.vercel.app
 // =================================================================
 
-const BASE_URL = '/api';
+// Menggunakan URL Vercel sebagai default backend produksi
+const RAW_BACKEND_URL = import.meta.env.VITE_API_URL || 'https://hematkuu.vercel.app';
+export const BASE_URL = `${RAW_BACKEND_URL.replace(/\/$/, '')}/api`;
+export const HEALTH_URL = `${RAW_BACKEND_URL.replace(/\/$/, '')}/health`;
 
 async function request(url, options = {}) {
     const config = {
@@ -16,7 +19,17 @@ async function request(url, options = {}) {
 
     try {
         const response = await fetch(url, config);
-        const data = await response.json();
+
+        // Periksa apakah server mengembalikan JSON
+        const contentType = response.headers.get('content-type') || '';
+        let data;
+
+        if (contentType.includes('application/json')) {
+            data = await response.json();
+        } else {
+            const rawText = await response.text();
+            throw new Error(`Server tidak mengembalikan JSON (Status ${response.status}): ${rawText.substring(0, 80)}`);
+        }
 
         if (!response.ok) {
             throw new Error(data.error || data.message || 'Terjadi kesalahan pada server');
@@ -24,7 +37,7 @@ async function request(url, options = {}) {
 
         return data;
     } catch (err) {
-        console.error(`API Error [${url}]:`, err);
+        console.error(`API Error [${url}]:`, err.message);
         throw err;
     }
 }

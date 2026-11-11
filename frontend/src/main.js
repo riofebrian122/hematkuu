@@ -2,7 +2,7 @@
 // HEMATKU - FRONTEND APPLICATION LOGIC (VITE + PNPM)
 // =================================================================
 
-import { authAPI, transactionAPI } from './api.js';
+import { authAPI, transactionAPI, HEALTH_URL } from './api.js';
 
 // State Aplikasi
 let currentUser = JSON.parse(localStorage.getItem('hematku_user')) || null;
@@ -187,7 +187,7 @@ function hideAlert() {
 // =================================================================
 async function checkBackendHealth() {
     try {
-        const res = await fetch('/health');
+        const res = await fetch(HEALTH_URL);
         if (res.ok) {
             backendStatus.className = "bg-emerald-500 text-white text-xs px-3 py-1.5 rounded-full font-medium flex items-center gap-1.5 shadow-sm";
             backendStatus.innerHTML = '<i class="fa-solid fa-circle-check text-xs"></i> <span>Backend Aktif (Port 3000)</span>';
