@@ -1,0 +1,55 @@
+# =================================================================
+# GITIGNORE - HEMATKU APPLICATION
+# =================================================================
+
+# 1. Dependencies (Node.js & pnpm)
+node_modules/
+.pnpm-store/
+frontend/node_modules/
+backend/node_modules/
+
+# 2. Sensitive Environment Variables & Credentials
+# SANGAT PENTING: Jangan sampai password/koneksi database ter-commit ke GitHub!
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# 3. Build Outputs
+dist/
+dist-ssr/
+frontend/dist/
+*.local
+
+# 4. Logs & Debugging
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 5. Database & Local Storage Files
+*.sqlite
+*.sqlite3
+*.db
+finance.db
+
+# 6. Operating System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 7. IDE & Editor Files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

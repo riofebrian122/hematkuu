@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>HematKu - Pencatat Keuangan Modern</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 pb-12 antialiased">
+
+    <!-- Header / Navbar Responsive -->
+    <header class="bg-indigo-600 text-white py-4 sm:py-6 shadow-md mb-6 sm:mb-8">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
+            <div>
+                <h1 class="text-xl sm:text-2xl font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-wallet text-indigo-200"></i> HematKu - Tracker Bulanan
+                </h1>
+                <p class="text-indigo-200 text-xs sm:text-sm mt-0.5 sm:mt-1">Kelola pemasukan dan pengeluaran secara terstruktur & aman.</p>
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 w-full sm:w-auto justify-between sm:justify-end">
+                <!-- Status Server Backend -->
+                <span id="backendStatus" class="bg-indigo-500 text-indigo-100 text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full font-medium flex items-center gap-1.5">
+                    <i class="fa-solid fa-server text-xs"></i> <span>Memeriksa Backend...</span>
+                </span>
+
+                <!-- Profil Pengguna & Logout -->
+                <div id="userProfileBar" class="hidden flex items-center gap-2">
+                    <span class="text-[11px] sm:text-xs bg-indigo-700 text-indigo-100 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full font-medium flex items-center gap-1.5 border border-indigo-400 max-w-[130px] sm:max-w-none truncate">
+                        <i class="fa-solid fa-user text-xs"></i> <span id="userNameGreeting" class="truncate">User</span>
+                    </span>
+                    <button id="logoutBtn" class="bg-rose-500 hover:bg-rose-600 text-white text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full font-medium transition duration-200 flex items-center gap-1.5 shadow" title="Keluar">
+                        <i class="fa-solid fa-right-from-bracket text-xs"></i> <span>Keluar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION LOGIN & REGISTER (Tampil jika belum login) -->
+    <section id="authSection" class="max-w-md mx-auto px-4 mt-2 sm:mt-6">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-200">
+            <!-- Tab Switcher -->
+            <div class="flex border-b border-slate-100 pb-3 mb-5 sm:mb-6">
+                <button id="tabLogin" class="flex-1 pb-2 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 flex items-center justify-center gap-2 transition">
+                    <i class="fa-solid fa-right-to-bracket"></i> Masuk (Login)
+                </button>
+                <button id="tabRegister" class="flex-1 pb-2 text-sm font-semibold text-slate-400 hover:text-slate-600 border-b-2 border-transparent flex items-center justify-center gap-2 transition">
+                    <i class="fa-solid fa-user-plus"></i> Daftar Akun
+                </button>
+            </div>
+
+            <div id="authAlert" class="hidden mb-4 p-3 rounded-xl text-xs font-medium"></div>
+
+            <form id="authForm" class="space-y-4">
+                <div>
+                    <label for="authUsername" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Username / ID Pengguna</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 text-sm">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <input type="text" id="authUsername" placeholder="Contoh: riofebrian" required minlength="3"
+                            class="w-full pl-9 pr-3 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="authPassword" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Password</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 text-sm">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                        <input type="password" id="authPassword" placeholder="Minimal 4 karakter" required minlength="4"
+                            class="w-full pl-9 pr-3 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                    </div>
+                </div>
+
+                <button type="submit" id="authSubmitBtn"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-xl transition duration-200 text-sm shadow flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> <span id="authSubmitText">Masuk ke HematKu</span>
+                </button>
+            </form>
+
+            <p id="authHint" class="text-xs text-slate-400 text-center mt-5 sm:mt-6">
+                Belum punya akun? Klik tab <b>Daftar Akun</b> di atas untuk membuat akun baru.
+            </p>
+        </div>
+    </section>
+
+    <!-- DASHBOARD UTAMA (Tampil jika sudah login) -->
+    <main id="mainApp" class="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 hidden">
+        
+        <!-- KOLOM KIRI: Form Input / Edit Data -->
+        <section class="lg:col-span-1">
+            <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200 lg:sticky lg:top-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 id="formTitle" class="text-base sm:text-lg font-bold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle text-indigo-600"></i> <span>Tambah Transaksi</span>
+                    </h2>
+                    <button id="cancelEditBtn" class="hidden text-xs text-rose-500 hover:text-rose-700 font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-xmark"></i> Batal Edit
+                    </button>
+                </div>
+
+                <form id="transactionForm" class="space-y-3.5 sm:space-y-4">
+                    <input type="hidden" id="editTransactionId" value="">
+
+                    <!-- Tanggal -->
+                    <div>
+                        <label for="date" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Tanggal</label>
+                        <input type="date" id="date" required 
+                            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                    </div>
+
+                    <!-- Deskripsi -->
+                    <div>
+                        <label for="description" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Deskripsi / Catatan</label>
+                        <input type="text" id="description" placeholder="Contoh: Gaji Bulanan / Beli Kopi" required 
+                            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                    </div>
+
+                    <!-- Tipe (Pemasukan / Pengeluaran) -->
+                    <div>
+                        <label for="type" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Jenis Transaksi</label>
+                        <select id="type" 
+                            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm bg-white">
+                            <option value="income">Pemasukan (+)</option>
+                            <option value="expense">Pengeluaran (-)</option>
+                        </select>
+                    </div>
+
+                    <!-- Kategori -->
+                    <div>
+                        <label for="category" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Kategori</label>
+                        <select id="category" 
+                            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm bg-white">
+                            <!-- Diisi via JavaScript -->
+                        </select>
+                    </div>
+
+                    <!-- Jumlah Nominal -->
+                    <div>
+                        <label for="amount" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Jumlah Nominal (Rp)</label>
+                        <input type="number" id="amount" placeholder="0" min="1" required 
+                            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                    </div>
+
+                    <!-- Tombol Submit -->
+                    <button type="submit" id="submitTransactionBtn"
+                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg transition duration-200 text-sm shadow flex items-center justify-center gap-1.5 touch-manipulation">
+                        <i class="fa-solid fa-arrow-down-to-bracket"></i> <span>Simpan Transaksi</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- KOLOM KANAN: Ringkasan & Tabel Data -->
+        <section class="lg:col-span-2 space-y-4 sm:space-y-6">
+
+            <!-- Filter Bulan dan Tahun Responsive -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+                <div class="font-semibold text-slate-700 text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-filter text-indigo-500"></i> Filter Periode:
+                </div>
+                <div class="grid grid-cols-2 sm:flex items-center gap-2 w-full sm:w-auto">
+                    <select id="filterMonth" class="w-full sm:w-auto px-3 py-2 sm:py-1.5 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 bg-white">
+                        <option value="0">Januari</option>
+                        <option value="1">Februari</option>
+                        <option value="2">Maret</option>
+                        <option value="3">April</option>
+                        <option value="4">Mei</option>
+                        <option value="5">Juni</option>
+                        <option value="6">Juli</option>
+                        <option value="7">Agustus</option>
+                        <option value="8">September</option>
+                        <option value="9">Oktober</option>
+                        <option value="10">November</option>
+                        <option value="11">Desember</option>
+                    </select>
+
+                    <select id="filterYear" class="w-full sm:w-auto px-3 py-2 sm:py-1.5 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 bg-white">
+                        <!-- Diisi otomatis oleh JavaScript -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dashboard Card Ringkasan Responsive -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                <!-- Card Pemasukan -->
+                <div class="bg-white p-4 sm:p-5 rounded-2xl border border-emerald-100 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-[11px] sm:text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Total Pemasukan</div>
+                        <div id="totalIncome" class="text-lg sm:text-xl font-bold text-slate-800 break-words tracking-tight">Rp 0</div>
+                    </div>
+                    <div class="mt-2.5 sm:mt-3 flex justify-end">
+                        <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs sm:text-sm">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Pengeluaran -->
+                <div class="bg-white p-4 sm:p-5 rounded-2xl border border-rose-100 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-[11px] sm:text-xs font-semibold text-rose-600 uppercase tracking-wider mb-1">Total Pengeluaran</div>
+                        <div id="totalExpense" class="text-lg sm:text-xl font-bold text-slate-800 break-words tracking-tight">Rp 0</div>
+                    </div>
+                    <div class="mt-2.5 sm:mt-3 flex justify-end">
+                        <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center text-xs sm:text-sm">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Selisih -->
+                <div id="balanceCard" class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between transition-colors duration-300">
+                    <div>
+                        <div class="text-[11px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1 flex items-center justify-between">
+                            Selisih Bersih
+                            <span id="statusBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold">Netral</span>
+                        </div>
+                        <div id="netBalance" class="text-lg sm:text-xl font-bold text-slate-800 break-words tracking-tight">Rp 0</div>
+                    </div>
+                    <div class="mt-2.5 sm:mt-3 flex justify-between items-center">
+                        <p id="statusMessage" class="text-xs text-slate-500 italic">Belum ada transaksi</p>
+                        <span id="balanceIcon" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs sm:text-sm">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabel Riwayat Transaksi Responsive -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-3.5 sm:p-4 border-b border-slate-100 flex justify-between items-center">
+                    <h3 class="font-bold text-slate-800 text-sm sm:text-base">Riwayat Transaksi</h3>
+                    <span id="transactionCount" class="text-xs text-slate-500 font-medium bg-slate-100 px-2.5 py-0.5 rounded-full">0 Transaksi</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse min-w-[520px] sm:min-w-full">
+                        <thead>
+                            <tr class="bg-slate-50 text-slate-500 text-[11px] sm:text-xs uppercase font-semibold border-b border-slate-100">
+                                <th class="p-2.5 sm:p-3 pl-3 sm:pl-4">Tanggal</th>
+                                <th class="p-2.5 sm:p-3">Deskripsi</th>
+                                <th class="p-2.5 sm:p-3">Kategori</th>
+                                <th class="p-2.5 sm:p-3 text-right">Jumlah</th>
+                                <th class="p-2.5 sm:p-3 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionList" class="divide-y divide-slate-100 text-xs sm:text-sm">
+                            <!-- Data tabel di-render melalui JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="emptyState" class="p-6 sm:p-8 text-center hidden">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                        <i class="fa-regular fa-folder-open text-lg sm:text-xl"></i>
+                    </div>
+                    <p class="text-slate-500 text-xs sm:text-sm font-medium">Tidak ada transaksi pada bulan ini.</p>
+                    <p class="text-slate-400 text-[11px] sm:text-xs mt-0.5 sm:mt-1">Silahkan tambah transaksi baru atau ubah filter periode.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Main JavaScript Module -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
