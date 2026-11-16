@@ -101,15 +101,15 @@ function switchAuthTab(tab) {
     hideAlert();
 
     if (tab === 'login') {
-        tabLogin.className = "flex-1 pb-2 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 flex items-center justify-center gap-2 transition";
-        tabRegister.className = "flex-1 pb-2 text-sm font-semibold text-slate-400 hover:text-slate-600 border-b-2 border-transparent flex items-center justify-center gap-2 transition";
+        tabLogin.className = "flex-1 py-2 text-xs sm:text-sm font-bold text-slate-900 bg-white rounded-xl shadow-xs flex items-center justify-center gap-2 transition duration-200";
+        tabRegister.className = "flex-1 py-2 text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 rounded-xl flex items-center justify-center gap-2 transition duration-200";
         authSubmitText.textContent = "Masuk ke HematKu";
-        authHint.innerHTML = "Belum punya akun? Klik tab <b>Daftar Akun</b> di atas untuk membuat akun baru.";
+        authHint.innerHTML = "Belum punya akun? Klik tab <b class=\"text-slate-700\">Daftar Akun</b> di atas untuk membuat akun baru.";
     } else {
-        tabRegister.className = "flex-1 pb-2 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 flex items-center justify-center gap-2 transition";
-        tabLogin.className = "flex-1 pb-2 text-sm font-semibold text-slate-400 hover:text-slate-600 border-b-2 border-transparent flex items-center justify-center gap-2 transition";
+        tabRegister.className = "flex-1 py-2 text-xs sm:text-sm font-bold text-slate-900 bg-white rounded-xl shadow-xs flex items-center justify-center gap-2 transition duration-200";
+        tabLogin.className = "flex-1 py-2 text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 rounded-xl flex items-center justify-center gap-2 transition duration-200";
         authSubmitText.textContent = "Buat Akun Sekarang";
-        authHint.innerHTML = "Sudah punya akun? Klik tab <b>Masuk (Login)</b> untuk masuk.";
+        authHint.innerHTML = "Sudah punya akun? Klik tab <b class=\"text-slate-700\">Masuk (Login)</b> untuk masuk.";
     }
 }
 
@@ -152,11 +152,15 @@ function handleLogout() {
 }
 
 function updateAuthUI() {
+    const bannerUserName = document.getElementById('bannerUserName');
     if (currentUser) {
         authSection.classList.add('hidden');
         mainApp.classList.remove('hidden');
         userProfileBar.classList.remove('hidden');
         userNameGreeting.textContent = currentUser.username;
+        if (bannerUserName) {
+            bannerUserName.textContent = currentUser.username;
+        }
     } else {
         authSection.classList.remove('hidden');
         mainApp.classList.add('hidden');
@@ -273,7 +277,7 @@ window.startEditTransaction = function(id) {
 
     formTitle.innerHTML = '<i class="fa-solid fa-pen-to-square text-amber-500"></i> <span>Edit Transaksi</span>';
     cancelEditBtn.classList.remove('hidden');
-    submitTransactionBtn.className = "w-full bg-amber-500 hover:bg-amber-600 text-white font-medium py-2.5 rounded-lg transition duration-200 text-sm shadow flex items-center justify-center gap-1.5";
+    submitTransactionBtn.className = "w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-xl transition duration-200 text-sm shadow-md shadow-amber-500/20 hover:shadow-lg flex items-center justify-center gap-2";
     submitTransactionBtn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Perbarui Transaksi</span>';
 
     // Scroll form into view
@@ -282,10 +286,10 @@ window.startEditTransaction = function(id) {
 
 function resetTransactionForm() {
     editingTransactionId = null;
-    formTitle.innerHTML = '<i class="fa-solid fa-plus-circle text-indigo-600"></i> <span>Tambah Transaksi</span>';
+    formTitle.innerHTML = '<i class="fa-solid fa-circle-plus text-emerald-600"></i> <span>Tambah Transaksi</span>';
     cancelEditBtn.classList.add('hidden');
-    submitTransactionBtn.className = "w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg transition duration-200 text-sm shadow flex items-center justify-center gap-1.5";
-    submitTransactionBtn.innerHTML = '<i class="fa-solid fa-arrow-down-to-bracket"></i> <span>Simpan Transaksi</span>';
+    submitTransactionBtn.className = "w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition duration-200 text-sm shadow-md shadow-emerald-600/20 hover:shadow-lg flex items-center justify-center gap-2 touch-manipulation";
+    submitTransactionBtn.innerHTML = '<i class="fa-solid fa-plus"></i> <span>Simpan Transaksi</span>';
 
     descriptionInput.value = '';
     amountInput.value = '';
@@ -326,35 +330,35 @@ function render() {
 }
 
 function updateStatusCard(balance, dataCount) {
-    balanceCard.className = "p-5 rounded-2xl shadow-sm border transition-all duration-300 ";
+    balanceCard.className = "p-5 rounded-3xl shadow-sm border transition-all duration-300 ";
 
     if (dataCount === 0) {
-        balanceCard.classList.add("bg-white", "border-slate-200");
-        statusBadge.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold";
-        statusBadge.textContent = "Kosong";
+        balanceCard.classList.add("bg-white", "border-slate-200/80");
+        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold";
+        statusBadge.textContent = "Netral";
         statusMessage.textContent = "Belum ada transaksi";
-        balanceIcon.className = "w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-sm";
+        balanceIcon.className = "w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-xs";
         balanceIcon.innerHTML = '<i class="fa-solid fa-scale-balanced"></i>';
     } else if (balance > 0) {
-        balanceCard.classList.add("bg-emerald-50/50", "border-emerald-200");
-        statusBadge.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-bold";
-        statusBadge.textContent = "Surplus / Hemat";
-        statusMessage.textContent = "Keuanganmu aman bulan ini!";
-        balanceIcon.className = "w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm";
+        balanceCard.classList.add("bg-emerald-50/40", "border-emerald-200");
+        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold";
+        statusBadge.textContent = "Surplus ✨";
+        statusMessage.textContent = "Luar biasa! Keuanganmu sehat & aman.";
+        balanceIcon.className = "w-7 h-7 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs";
         balanceIcon.innerHTML = '<i class="fa-solid fa-face-smile"></i>';
     } else if (balance < 0) {
-        balanceCard.classList.add("bg-rose-50/50", "border-rose-200");
-        statusBadge.className = "text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 font-bold";
-        statusBadge.textContent = "Defisit / Rugi";
-        statusMessage.textContent = "Waspada! Pengeluaran membengkak";
-        balanceIcon.className = "w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-sm";
+        balanceCard.classList.add("bg-rose-50/40", "border-rose-200");
+        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-800 font-bold";
+        statusBadge.textContent = "Defisit ⚠️";
+        statusMessage.textContent = "Pengeluaran lebih besar dari pemasukan.";
+        balanceIcon.className = "w-7 h-7 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xs";
         balanceIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
     } else {
-        balanceCard.classList.add("bg-slate-50", "border-slate-200");
-        statusBadge.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-200 text-slate-700 font-bold";
+        balanceCard.classList.add("bg-slate-50/60", "border-slate-200");
+        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700 font-bold";
         statusBadge.textContent = "Impas";
-        statusMessage.textContent = "Pemasukan & Pengeluaran sama";
-        balanceIcon.className = "w-8 h-8 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-sm";
+        statusMessage.textContent = "Pemasukan & Pengeluaran seimbang.";
+        balanceIcon.className = "w-7 h-7 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs";
         balanceIcon.innerHTML = '<i class="fa-solid fa-equals"></i>';
     }
 }
