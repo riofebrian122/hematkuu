@@ -192,13 +192,15 @@ function hideAlert() {
 async function checkBackendHealth() {
     try {
         const res = await fetch(HEALTH_URL);
-        if (res.ok) {
+        if (res.ok && backendStatus) {
             backendStatus.className = "bg-[#171d18] text-[#a3e635] border border-[#27352a] text-xs px-3 py-1.5 rounded-full font-bold flex items-center gap-1.5 shadow-[0_0_12px_rgba(163,230,53,0.15)]";
             backendStatus.innerHTML = '<i class="fa-solid fa-circle-check text-xs text-[#a3e635]"></i> <span>Backend Aktif</span>';
         }
     } catch {
-        backendStatus.className = "bg-[#281618] text-[#f87171] border border-[#402024] text-xs px-3 py-1.5 rounded-full font-bold flex items-center gap-1.5";
-        backendStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-xs text-[#f87171]"></i> <span>Backend Offline</span>';
+        if (backendStatus) {
+            backendStatus.className = "bg-[#281618] text-[#f87171] border border-[#402024] text-xs px-3 py-1.5 rounded-full font-bold flex items-center gap-1.5";
+            backendStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-xs text-[#f87171]"></i> <span>Backend Offline</span>';
+        }
     }
 }
 
