@@ -101,15 +101,15 @@ function switchAuthTab(tab) {
     hideAlert();
 
     if (tab === 'login') {
-        tabLogin.className = "flex-1 py-2 text-xs sm:text-sm font-bold text-slate-900 bg-white rounded-xl shadow-xs flex items-center justify-center gap-2 transition duration-200";
-        tabRegister.className = "flex-1 py-2 text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 rounded-xl flex items-center justify-center gap-2 transition duration-200";
+        tabLogin.className = "flex-1 py-2.5 text-xs sm:text-sm font-extrabold text-[#0c0f0d] bg-[#a3e635] rounded-xl shadow-[0_0_15px_rgba(163,230,53,0.25)] flex items-center justify-center gap-2 transition duration-200";
+        tabRegister.className = "flex-1 py-2.5 text-xs sm:text-sm font-bold text-[#8a958e] hover:text-white rounded-xl flex items-center justify-center gap-2 transition duration-200";
         authSubmitText.textContent = "Masuk ke HematKu";
-        authHint.innerHTML = "Belum punya akun? Klik tab <b class=\"text-slate-700\">Daftar Akun</b> di atas untuk membuat akun baru.";
+        authHint.innerHTML = "Belum punya akun? Klik tab <b class=\"text-[#a3e635]\">Daftar Akun</b> di atas untuk membuat akun baru.";
     } else {
-        tabRegister.className = "flex-1 py-2 text-xs sm:text-sm font-bold text-slate-900 bg-white rounded-xl shadow-xs flex items-center justify-center gap-2 transition duration-200";
-        tabLogin.className = "flex-1 py-2 text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 rounded-xl flex items-center justify-center gap-2 transition duration-200";
+        tabRegister.className = "flex-1 py-2.5 text-xs sm:text-sm font-extrabold text-[#0c0f0d] bg-[#a3e635] rounded-xl shadow-[0_0_15px_rgba(163,230,53,0.25)] flex items-center justify-center gap-2 transition duration-200";
+        tabLogin.className = "flex-1 py-2.5 text-xs sm:text-sm font-bold text-[#8a958e] hover:text-white rounded-xl flex items-center justify-center gap-2 transition duration-200";
         authSubmitText.textContent = "Buat Akun Sekarang";
-        authHint.innerHTML = "Sudah punya akun? Klik tab <b class=\"text-slate-700\">Masuk (Login)</b> untuk masuk.";
+        authHint.innerHTML = "Sudah punya akun? Klik tab <b class=\"text-[#a3e635]\">Masuk</b> untuk masuk.";
     }
 }
 
@@ -171,14 +171,14 @@ function updateAuthUI() {
 function showAlert(msg, type = 'error') {
     authAlert.classList.remove('hidden');
     if (type === 'error') {
-        authAlert.className = "mb-4 p-3 rounded-xl text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-2";
-        authAlert.innerHTML = `<i class="fa-solid fa-circle-exclamation text-rose-500"></i> <span>${msg}</span>`;
+        authAlert.className = "mb-4 p-3.5 rounded-xl text-xs font-semibold bg-[#2a1618] text-[#fca5a5] border border-[#452025] flex items-center gap-2";
+        authAlert.innerHTML = `<i class="fa-solid fa-circle-exclamation text-[#f87171]"></i> <span>${msg}</span>`;
     } else if (type === 'success') {
-        authAlert.className = "mb-4 p-3 rounded-xl text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-2";
-        authAlert.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-500"></i> <span>${msg}</span>`;
+        authAlert.className = "mb-4 p-3.5 rounded-xl text-xs font-semibold bg-[#16271c] text-[#a3e635] border border-[#243d2c] flex items-center gap-2";
+        authAlert.innerHTML = `<i class="fa-solid fa-circle-check text-[#a3e635]"></i> <span>${msg}</span>`;
     } else {
-        authAlert.className = "mb-4 p-3 rounded-xl text-xs font-medium bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-2";
-        authAlert.innerHTML = `<i class="fa-solid fa-circle-info text-indigo-500"></i> <span>${msg}</span>`;
+        authAlert.className = "mb-4 p-3.5 rounded-xl text-xs font-semibold bg-[#162028] text-[#93c5fd] border border-[#1e3445] flex items-center gap-2";
+        authAlert.innerHTML = `<i class="fa-solid fa-circle-info text-[#38bdf8]"></i> <span>${msg}</span>`;
     }
 }
 
@@ -193,12 +193,12 @@ async function checkBackendHealth() {
     try {
         const res = await fetch(HEALTH_URL);
         if (res.ok) {
-            backendStatus.className = "bg-emerald-500 text-white text-xs px-3 py-1.5 rounded-full font-medium flex items-center gap-1.5 shadow-sm";
-            backendStatus.innerHTML = '<i class="fa-solid fa-circle-check text-xs"></i> <span>Backend Aktif (Port 3000)</span>';
+            backendStatus.className = "bg-[#171d18] text-[#a3e635] border border-[#27352a] text-xs px-3 py-1.5 rounded-full font-bold flex items-center gap-1.5 shadow-[0_0_12px_rgba(163,230,53,0.15)]";
+            backendStatus.innerHTML = '<i class="fa-solid fa-circle-check text-xs text-[#a3e635]"></i> <span>Backend Aktif</span>';
         }
     } catch {
-        backendStatus.className = "bg-rose-500 text-white text-xs px-3 py-1.5 rounded-full font-medium flex items-center gap-1.5 shadow-sm";
-        backendStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-xs"></i> <span>Backend Offline</span>';
+        backendStatus.className = "bg-[#281618] text-[#f87171] border border-[#402024] text-xs px-3 py-1.5 rounded-full font-bold flex items-center gap-1.5";
+        backendStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-xs text-[#f87171]"></i> <span>Backend Offline</span>';
     }
 }
 
@@ -275,10 +275,10 @@ window.startEditTransaction = function(id) {
     categoryInput.value = item.category;
     amountInput.value = item.amount;
 
-    formTitle.innerHTML = '<i class="fa-solid fa-pen-to-square text-amber-500"></i> <span>Edit Transaksi</span>';
+    formTitle.innerHTML = '<i class="fa-solid fa-pen-to-square text-amber-400"></i> <span>Edit Transaksi</span>';
     cancelEditBtn.classList.remove('hidden');
-    submitTransactionBtn.className = "w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-xl transition duration-200 text-sm shadow-md shadow-amber-500/20 hover:shadow-lg flex items-center justify-center gap-2";
-    submitTransactionBtn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Perbarui Transaksi</span>';
+    submitTransactionBtn.className = "w-full bg-amber-400 hover:bg-amber-300 text-[#0c0f0d] font-black py-3 rounded-xl transition duration-200 text-sm shadow-[0_0_20px_rgba(251,191,36,0.3)] flex items-center justify-center gap-2";
+    submitTransactionBtn.innerHTML = '<i class="fa-solid fa-check font-bold"></i> <span>Perbarui Transaksi</span>';
 
     // Scroll form into view
     dateInput.focus();
@@ -286,10 +286,10 @@ window.startEditTransaction = function(id) {
 
 function resetTransactionForm() {
     editingTransactionId = null;
-    formTitle.innerHTML = '<i class="fa-solid fa-circle-plus text-emerald-600"></i> <span>Tambah Transaksi</span>';
+    formTitle.innerHTML = '<i class="fa-solid fa-circle-plus text-[#a3e635]"></i> <span>Tambah Transaksi</span>';
     cancelEditBtn.classList.add('hidden');
-    submitTransactionBtn.className = "w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition duration-200 text-sm shadow-md shadow-emerald-600/20 hover:shadow-lg flex items-center justify-center gap-2 touch-manipulation";
-    submitTransactionBtn.innerHTML = '<i class="fa-solid fa-plus"></i> <span>Simpan Transaksi</span>';
+    submitTransactionBtn.className = "w-full bg-[#a3e635] hover:bg-[#bef264] text-[#0c0f0d] font-black py-3 rounded-xl transition duration-200 text-sm shadow-[0_0_20px_rgba(163,230,53,0.3)] hover:shadow-[0_0_30px_rgba(163,230,53,0.5)] flex items-center justify-center gap-2 touch-manipulation active:scale-[0.99]";
+    submitTransactionBtn.innerHTML = '<i class="fa-solid fa-plus font-bold"></i> <span>Simpan Transaksi</span>';
 
     descriptionInput.value = '';
     amountInput.value = '';
@@ -330,35 +330,35 @@ function render() {
 }
 
 function updateStatusCard(balance, dataCount) {
-    balanceCard.className = "p-5 rounded-3xl shadow-sm border transition-all duration-300 ";
+    balanceCard.className = "p-5 rounded-3xl border shadow-xl flex flex-col justify-between transition-all duration-300 ";
 
     if (dataCount === 0) {
-        balanceCard.classList.add("bg-white", "border-slate-200/80");
-        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold";
+        balanceCard.classList.add("bg-[#141815]", "border-[#242b26]");
+        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-[#1c241e] text-[#8a958e] font-extrabold border border-[#2b372e]";
         statusBadge.textContent = "Netral";
         statusMessage.textContent = "Belum ada transaksi";
-        balanceIcon.className = "w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-xs";
+        balanceIcon.className = "w-8 h-8 rounded-xl bg-[#1c221e] text-[#8a958e] border border-[#273229] flex items-center justify-center text-xs";
         balanceIcon.innerHTML = '<i class="fa-solid fa-scale-balanced"></i>';
     } else if (balance > 0) {
-        balanceCard.classList.add("bg-emerald-50/40", "border-emerald-200");
-        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold";
+        balanceCard.classList.add("bg-gradient-to-b", "from-[#162725]/90", "via-[#141815]", "to-[#141815]", "border-[#233530]");
+        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-[#a3e635]/15 text-[#a3e635] font-extrabold border border-[#a3e635]/30 shadow-[0_0_10px_rgba(163,230,53,0.15)]";
         statusBadge.textContent = "Surplus ✨";
-        statusMessage.textContent = "Luar biasa! Keuanganmu sehat & aman.";
-        balanceIcon.className = "w-7 h-7 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs";
+        statusMessage.textContent = "Luar biasa! Keuanganmu tumbuh aman.";
+        balanceIcon.className = "w-8 h-8 rounded-xl bg-[#a3e635]/20 text-[#a3e635] border border-[#a3e635]/30 flex items-center justify-center text-xs";
         balanceIcon.innerHTML = '<i class="fa-solid fa-face-smile"></i>';
     } else if (balance < 0) {
-        balanceCard.classList.add("bg-rose-50/40", "border-rose-200");
-        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-800 font-bold";
+        balanceCard.classList.add("bg-gradient-to-b", "from-[#2d181c]/90", "via-[#141815]", "to-[#141815]", "border-[#3d2328]");
+        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-[#f87171]/15 text-[#f87171] font-extrabold border border-[#f87171]/30 shadow-[0_0_10px_rgba(248,113,113,0.15)]";
         statusBadge.textContent = "Defisit ⚠️";
-        statusMessage.textContent = "Pengeluaran lebih besar dari pemasukan.";
-        balanceIcon.className = "w-7 h-7 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xs";
+        statusMessage.textContent = "Perhatian! Pengeluaran melebihi pemasukan.";
+        balanceIcon.className = "w-8 h-8 rounded-xl bg-[#f87171]/20 text-[#f87171] border border-[#f87171]/30 flex items-center justify-center text-xs";
         balanceIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
     } else {
-        balanceCard.classList.add("bg-slate-50/60", "border-slate-200");
-        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700 font-bold";
+        balanceCard.classList.add("bg-[#141815]", "border-[#242b26]");
+        statusBadge.className = "text-[10px] px-2.5 py-0.5 rounded-full bg-[#1c241e] text-[#8a958e] font-extrabold border border-[#2b372e]";
         statusBadge.textContent = "Impas";
         statusMessage.textContent = "Pemasukan & Pengeluaran seimbang.";
-        balanceIcon.className = "w-7 h-7 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs";
+        balanceIcon.className = "w-8 h-8 rounded-xl bg-[#1c221e] text-[#8a958e] border border-[#273229] flex items-center justify-center text-xs";
         balanceIcon.innerHTML = '<i class="fa-solid fa-equals"></i>';
     }
 }
@@ -376,31 +376,31 @@ function renderTable(data) {
 
     data.forEach(item => {
         const row = document.createElement('tr');
-        row.className = "hover:bg-slate-50/80 transition-colors";
+        row.className = "hover:bg-[#19201a] transition-colors border-b border-[#1e2520]";
 
         const isIncome = item.type === 'income';
-        const amountClass = isIncome ? 'text-emerald-600 font-semibold' : 'text-rose-600 font-semibold';
+        const amountClass = isIncome ? 'text-[#a3e635] font-black' : 'text-[#f87171] font-black';
         const amountSign = isIncome ? '+' : '-';
 
         row.innerHTML = `
-            <td class="p-2.5 sm:p-3 pl-3 sm:pl-4 text-xs text-slate-500 whitespace-nowrap">${formatDate(item.date)}</td>
-            <td class="p-2.5 sm:p-3 font-medium text-slate-800 max-w-[130px] sm:max-w-xs truncate" title="${escapeHtml(item.description)}">${escapeHtml(item.description)}</td>
-            <td class="p-2.5 sm:p-3 text-xs whitespace-nowrap">
-                <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200">
+            <td class="py-3 px-4 text-xs text-[#8a958e] whitespace-nowrap">${formatDate(item.date)}</td>
+            <td class="py-3 px-4 font-bold text-white max-w-[140px] sm:max-w-xs truncate" title="${escapeHtml(item.description)}">${escapeHtml(item.description)}</td>
+            <td class="py-3 px-4 text-xs whitespace-nowrap">
+                <span class="px-2.5 py-1 rounded-lg bg-[#1a231b] text-[#b0bcb4] border border-[#29352b] font-semibold text-xs">
                     ${item.category}
                 </span>
             </td>
-            <td class="p-2.5 sm:p-3 text-right ${amountClass} whitespace-nowrap font-medium">
+            <td class="py-3 px-4 text-right ${amountClass} whitespace-nowrap text-sm tracking-tight">
                 ${amountSign} ${formatRupiah(item.amount)}
             </td>
-            <td class="p-2.5 sm:p-3 text-center whitespace-nowrap space-x-1">
+            <td class="py-3 px-4 text-center whitespace-nowrap space-x-1.5">
                 <button onclick="startEditTransaction(${item.id})" 
-                    class="text-slate-400 hover:text-amber-500 p-1.5 sm:p-2 rounded-lg hover:bg-amber-50 transition-colors touch-manipulation inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8"
+                    class="text-[#8a958e] hover:text-amber-400 p-1.5 sm:p-2 rounded-xl hover:bg-[#25231c] transition-colors touch-manipulation inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8"
                     title="Edit Transaksi">
                     <i class="fa-regular fa-pen-to-square text-xs sm:text-sm"></i>
                 </button>
                 <button onclick="deleteTransactionItem(${item.id})" 
-                    class="text-slate-400 hover:text-rose-600 p-1.5 sm:p-2 rounded-lg hover:bg-rose-50 transition-colors touch-manipulation inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8"
+                    class="text-[#8a958e] hover:text-[#f87171] p-1.5 sm:p-2 rounded-xl hover:bg-[#281618] transition-colors touch-manipulation inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8"
                     title="Hapus Transaksi">
                     <i class="fa-regular fa-trash-can text-xs sm:text-sm"></i>
                 </button>

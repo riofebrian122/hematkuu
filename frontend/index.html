@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>HematKu - Pencatat Keuangan Elegan & Modern</title>
+    <title>HematKu - Dark Luxury Financial Tracker</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -14,12 +14,21 @@
                         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
                     },
                     colors: {
-                        brand: {
-                            50: '#ecfdf5',
-                            100: '#d1fae5',
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
+                        folia: {
+                            bg: '#0c0f0d',
+                            surface: '#131714',
+                            card: '#161a17',
+                            cardHover: '#1a201b',
+                            input: '#181e19',
+                            border: '#242c26',
+                            borderLight: '#2f3932',
+                            lime: '#a3e635',
+                            limeHover: '#bef264',
+                            limeGlow: 'rgba(163, 230, 53, 0.35)',
+                            muted: '#8a958e',
+                            mutedLight: '#b0bcb4',
+                            coral: '#f87171',
+                            cyan: '#38bdf8'
                         }
                     }
                 }
@@ -29,60 +38,84 @@
     <!-- Google Fonts: Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { 
             font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; 
-            background-color: #f8fafc;
+            background-color: #0c0f0d;
+            color: #ffffff;
         }
-        /* Custom subtle glass blur */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        ::-webkit-scrollbar-track {
+            background: #0c0f0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #242c26;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a3e635;
+        }
+        /* Dark input autofill override */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus {
+            -webkit-text-fill-color: #ffffff;
+            -webkit-box-shadow: 0 0 0px 1000px #181e19 inset;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+        /* Select dropdown dark option */
+        select option {
+            background-color: #161a17;
+            color: #ffffff;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-white to-emerald-50/20 min-h-screen text-slate-800 pb-16 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+<body class="bg-[#0c0f0d] min-h-screen text-white pb-16 antialiased selection:bg-[#a3e635] selection:text-[#0c0f0d]">
 
-    <!-- Header / Navbar Bersih & Elegan (Clean White Modern Luxury) -->
-    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200/70 shadow-sm transition-all">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
+    <!-- Ambient Glow Top Background -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-[#a3e635]/[0.04] rounded-full blur-3xl pointer-events-none"></div>
+    <div class="fixed top-20 right-1/4 w-96 h-96 bg-[#38bdf8]/[0.03] rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Header / Navbar Dark Luxury (Folia Style) -->
+    <header class="bg-[#111512]/90 backdrop-blur-md sticky top-0 z-40 border-b border-[#202722] shadow-xl transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
+            <!-- Brand Logo & Name -->
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white shadow-md shadow-emerald-500/25">
-                    <i class="fa-solid fa-wallet text-lg"></i>
+                <div class="w-10 h-10 rounded-xl bg-[#a3e635] flex items-center justify-center text-[#0c0f0d] shadow-[0_0_20px_rgba(163,230,53,0.35)]">
+                    <i class="fa-solid fa-wallet text-base font-extrabold"></i>
                 </div>
                 <div>
-                    <h1 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-                        HematKu
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 uppercase tracking-wider">Tracker</span>
-                    </h1>
-                    <p class="text-slate-500 text-xs hidden sm:block">Kelola masa depan finansialmu dengan penuh semangat & ketenangan.</p>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-lg sm:text-xl font-black text-white tracking-tight">HematKu</h1>
+                        <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#1e271f] text-[#a3e635] border border-[#a3e635]/30 uppercase tracking-wider">PRO</span>
+                    </div>
+                    <p class="text-[#8a958e] text-xs hidden sm:block">Smart Financial Control & Wealth Discipline</p>
                 </div>
             </div>
             
+            <!-- Status & Profile Controls -->
             <div class="flex flex-wrap items-center gap-2 sm:gap-3 w-full sm:w-auto justify-between sm:justify-end">
                 <!-- Status Server Backend -->
-                <span id="backendStatus" class="bg-slate-100 text-slate-600 border border-slate-200 text-[11px] sm:text-xs px-3 py-1.5 rounded-full font-semibold flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-circle-notch fa-spin text-xs text-slate-400"></i> <span>Memeriksa Backend...</span>
+                <span id="backendStatus" class="bg-[#171d18] text-[#a3e635] border border-[#27352a] text-[11px] sm:text-xs px-3 py-1.5 rounded-full font-bold flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-circle-notch fa-spin text-xs text-[#a3e635]"></i> <span>Memeriksa Backend...</span>
                 </span>
 
                 <!-- Profil Pengguna & Logout -->
                 <div id="userProfileBar" class="hidden flex items-center gap-2">
-                    <div class="bg-slate-50 border border-slate-200/80 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-xs">
-                        <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] font-bold">
+                    <div class="bg-[#171c18] border border-[#263128] px-3 py-1.5 rounded-full flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-[#a3e635] text-[#0c0f0d] flex items-center justify-center text-[10px] font-black">
                             <i class="fa-solid fa-user"></i>
                         </div>
-                        <span id="userNameGreeting" class="text-xs font-bold text-slate-700 max-w-[120px] truncate">User</span>
+                        <span id="userNameGreeting" class="text-xs font-bold text-white max-w-[120px] truncate">User</span>
                     </div>
-                    <button id="logoutBtn" class="bg-white hover:bg-rose-50 text-slate-600 hover:text-rose-600 border border-slate-200 hover:border-rose-200 text-xs px-3 py-1.5 rounded-full font-semibold transition duration-150 flex items-center gap-1.5 shadow-xs" title="Keluar">
+                    <button id="logoutBtn" class="bg-[#1e1718] hover:bg-rose-950/50 text-[#f87171] border border-[#3f2225] hover:border-rose-500/50 text-xs px-3 py-1.5 rounded-full font-bold transition duration-150 flex items-center gap-1.5" title="Keluar">
                         <i class="fa-solid fa-arrow-right-from-bracket text-xs"></i> <span>Keluar</span>
                     </button>
                 </div>
@@ -90,172 +123,172 @@
         </div>
     </header>
 
-    <!-- SECTION LOGIN & REGISTER (TAMPILAN PUTIH BERSIH, ELEGAN & MEMOTIVASI) -->
-    <section id="authSection" class="max-w-4xl mx-auto px-4 mt-6 sm:mt-12">
-        <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200/80 overflow-hidden grid grid-cols-1 md:grid-cols-12 transition-all">
+    <!-- SECTION LOGIN & REGISTER (DARK LUXURY CINEMATIC STYLE) -->
+    <section id="authSection" class="max-w-4xl mx-auto px-4 mt-6 sm:mt-12 relative z-10">
+        <div class="bg-[#141815] rounded-3xl shadow-2xl border border-[#242c26] overflow-hidden grid grid-cols-1 md:grid-cols-12 transition-all">
             
-            <!-- KOLOM KIRI (FOTO ELEGAN & KUTIPAN MOTIVASI PUTIH CERAH) -->
-            <div class="md:col-span-6 relative min-h-[300px] md:min-h-[520px] overflow-hidden flex flex-col justify-between p-6 sm:p-8">
-                <!-- Foto Asli yang Jernih & Terang -->
+            <!-- KOLOM KIRI (FOTO CINEMATIC DENGAN GLASS MOTIVASI DARK) -->
+            <div class="md:col-span-6 relative min-h-[320px] md:min-h-[520px] overflow-hidden flex flex-col justify-between p-6 sm:p-8">
+                <!-- Foto Asli yang Elegan -->
                 <img id="loginHeroImg" 
                      src="/foto%20screen.jpg" 
                      alt="Financial Freedom Motivation" 
                      class="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700">
                 
-                <!-- Lapisan Gradasi Lembut & Elegan agar Foto Tetap Cerah dan Teks Sangat Jelas -->
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/35 to-white/10 md:bg-gradient-to-t md:from-slate-950/80 md:via-slate-900/30 md:to-transparent"></div>
+                <!-- Lapisan Dark Gradient Vignette Mewah -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0c0f0d] via-[#0c0f0d]/60 to-[#0c0f0d]/20 md:bg-gradient-to-t md:from-[#0c0f0d]/95 md:via-[#0c0f0d]/50 md:to-transparent"></div>
                 
                 <!-- Badge Atas: Mindset Keuangan -->
                 <div class="relative z-10 flex items-center justify-between">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold glass-card text-slate-800 border border-white/80 shadow-md">
-                        <i class="fa-solid fa-gem text-amber-500"></i> Smart Money Habit
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-extrabold bg-[#121613]/90 text-[#a3e635] border border-[#a3e635]/30 backdrop-blur-md shadow-[0_0_15px_rgba(163,230,53,0.2)]">
+                        <i class="fa-solid fa-bolt text-[#a3e635]"></i> WEALTH HABIT
                     </span>
-                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/90 text-white backdrop-blur-sm shadow-sm">
-                        <i class="fa-solid fa-shield-halved text-xs"></i> Aman & Privat
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#141915]/90 text-white border border-[#2b362e] backdrop-blur-sm">
+                        <i class="fa-solid fa-shield-halved text-[#a3e635] text-xs"></i> 100% Aman & Terenkripsi
                     </span>
                 </div>
 
                 <!-- Bagian Kutipan Motivasi Finansial -->
                 <div class="relative z-10 mt-auto pt-8">
-                    <div class="glass-card p-5 sm:p-6 rounded-2xl border border-white/80 shadow-lg text-slate-900">
-                        <div class="flex items-center gap-1.5 text-amber-500 text-xs font-bold uppercase tracking-wider mb-1.5">
+                    <div class="bg-[#121613]/90 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-[#263128] shadow-2xl text-white">
+                        <div class="flex items-center gap-1 text-[#a3e635] text-xs font-bold uppercase tracking-wider mb-2">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <span class="text-slate-500 ml-1 font-semibold text-[11px]">Financial Freedom</span>
+                            <span class="text-[#8a958e] ml-1.5 font-semibold text-[11px]">Financial Freedom Target</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug">
-                            Kendalikan Uangmu, <br><span class="text-emerald-600">Bukan Sebaliknya.</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug">
+                            Kendalikan Uangmu, <br><span class="text-[#a3e635]">Bangun Masa Depanmu.</span>
                         </h2>
-                        <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                            "Disiplin mencatat pengeluaran kecil hari ini adalah jembatan emas menuju impian dan kebebasan finansialmu."
+                        <p class="text-xs sm:text-sm text-[#b0bcb4] mt-2 leading-relaxed">
+                            "Setiap rupiah yang kamu catat dan hemat hari ini adalah pondasi kuat kebebasan finansial esok hari."
                         </p>
-                        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                            <span class="flex items-center gap-1.5 text-emerald-600 font-semibold">
-                                <i class="fa-solid fa-circle-check"></i> 100% Sadar Finansial
+                        <div class="mt-4 pt-3 border-t border-[#202722] flex items-center justify-between text-[11px] text-[#8a958e] font-semibold">
+                            <span class="flex items-center gap-1.5 text-[#a3e635]">
+                                <i class="fa-solid fa-circle-check"></i> Disiplin Finansial Harian
                             </span>
-                            <span>Mulai Hari Ini</span>
+                            <span>Mulai Sekarang</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- KOLOM KANAN: FORMULIR LOGIN / REGISTER (PUTIH BERSIH & ELEGAN) -->
-            <div class="md:col-span-6 p-6 sm:p-10 flex flex-col justify-center bg-white">
+            <!-- KOLOM KANAN: FORMULIR LOGIN / REGISTER (DARK OBSIDIAN STYLE) -->
+            <div class="md:col-span-6 p-6 sm:p-10 flex flex-col justify-center bg-[#141815]">
                 <!-- Sambutan -->
                 <div class="mb-6">
-                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Selamat Datang 👋</h3>
-                    <p class="text-xs sm:text-sm text-slate-500 mt-1">Masuk untuk melihat perkembangan finansial dan tabunganmu.</p>
+                    <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">Selamat Datang 👋</h3>
+                    <p class="text-xs sm:text-sm text-[#8a958e] mt-1">Masuk untuk mencatat mutasi & pantau perkembangan tabunganmu.</p>
                 </div>
 
-                <!-- Tab Switcher Elegan -->
-                <div class="flex p-1 bg-slate-100/90 rounded-2xl mb-6">
-                    <button id="tabLogin" class="flex-1 py-2 text-xs sm:text-sm font-bold text-slate-900 bg-white rounded-xl shadow-xs flex items-center justify-center gap-2 transition duration-200">
-                        <i class="fa-solid fa-arrow-right-to-bracket text-emerald-600"></i> Masuk
+                <!-- Tab Switcher Dark Folia -->
+                <div class="flex p-1 bg-[#0f1210] rounded-2xl mb-6 border border-[#202722]">
+                    <button id="tabLogin" class="flex-1 py-2.5 text-xs sm:text-sm font-extrabold text-[#0c0f0d] bg-[#a3e635] rounded-xl shadow-[0_0_15px_rgba(163,230,53,0.25)] flex items-center justify-center gap-2 transition duration-200">
+                        <i class="fa-solid fa-arrow-right-to-bracket text-xs"></i> Masuk
                     </button>
-                    <button id="tabRegister" class="flex-1 py-2 text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 rounded-xl flex items-center justify-center gap-2 transition duration-200">
-                        <i class="fa-solid fa-user-plus text-slate-400"></i> Daftar Akun
+                    <button id="tabRegister" class="flex-1 py-2.5 text-xs sm:text-sm font-bold text-[#8a958e] hover:text-white rounded-xl flex items-center justify-center gap-2 transition duration-200">
+                        <i class="fa-solid fa-user-plus text-xs"></i> Daftar Akun
                     </button>
                 </div>
 
-                <div id="authAlert" class="hidden mb-4 p-3.5 rounded-xl text-xs font-medium border transition-all"></div>
+                <div id="authAlert" class="hidden mb-4 p-3.5 rounded-xl text-xs font-semibold border transition-all"></div>
 
                 <form id="authForm" class="space-y-4">
                     <div>
-                        <label for="authUsername" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                        <label for="authUsername" class="block text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1.5">
                             Username / Akun
                         </label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#5a665e] text-sm">
                                 <i class="fa-regular fa-user"></i>
                             </span>
                             <input type="text" id="authUsername" placeholder="Masukkan username Anda..." required minlength="3"
-                                class="w-full pl-10 pr-3.5 py-2.5 sm:py-3 bg-slate-50/50 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 text-sm font-medium transition placeholder:text-slate-400">
+                                class="w-full pl-10 pr-3.5 py-3 bg-[#181e19] border border-[#273129] rounded-xl text-white placeholder-[#556157] focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/25 text-sm font-medium transition">
                         </div>
                     </div>
 
                     <div>
-                        <label for="authPassword" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                        <label for="authPassword" class="block text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1.5">
                             Password
                         </label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#5a665e] text-sm">
                                 <i class="fa-regular fa-lock"></i>
                             </span>
                             <input type="password" id="authPassword" placeholder="Minimal 4 karakter..." required minlength="4"
-                                class="w-full pl-10 pr-3.5 py-2.5 sm:py-3 bg-slate-50/50 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 text-sm font-medium transition placeholder:text-slate-400">
+                                class="w-full pl-10 pr-3.5 py-3 bg-[#181e19] border border-[#273129] rounded-xl text-white placeholder-[#556157] focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/25 text-sm font-medium transition">
                         </div>
                     </div>
 
                     <button type="submit" id="authSubmitBtn"
-                        class="w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-700 hover:to-teal-800 text-white font-bold py-3 sm:py-3.5 rounded-xl transition duration-200 text-sm shadow-md shadow-emerald-600/20 hover:shadow-lg hover:shadow-emerald-600/30 flex items-center justify-center gap-2 transform active:scale-[0.99]">
-                        <i class="fa-solid fa-arrow-right-to-bracket text-emerald-200"></i> <span id="authSubmitText">Masuk ke HematKu</span>
+                        class="w-full bg-[#a3e635] hover:bg-[#bef264] text-[#0c0f0d] font-black py-3.5 rounded-xl transition-all duration-200 text-sm shadow-[0_0_25px_rgba(163,230,53,0.35)] hover:shadow-[0_0_35px_rgba(163,230,53,0.5)] flex items-center justify-center gap-2 transform active:scale-[0.99]">
+                        <i class="fa-solid fa-arrow-right-to-bracket text-sm"></i> <span id="authSubmitText">Masuk ke HematKu</span>
                     </button>
                 </form>
 
-                <p id="authHint" class="text-xs text-slate-500 text-center mt-6">
-                    Belum punya akun? Klik tab <b class="text-slate-700">Daftar Akun</b> di atas untuk membuat akun baru.
+                <p id="authHint" class="text-xs text-[#8a958e] text-center mt-6">
+                    Belum punya akun? Klik tab <b class="text-[#a3e635]">Daftar Akun</b> di atas untuk membuat akun baru.
                 </p>
             </div>
 
         </div>
     </section>
 
-    <!-- DASHBOARD UTAMA (TAMPILAN PUTIH BERSIH & MEWAH SAAT SUDAH LOGIN) -->
-    <main id="mainApp" class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-4 sm:mt-6 hidden">
+    <!-- DASHBOARD UTAMA (FOLIA DARK LUXURY STYLE SAAT SUDAH LOGIN) -->
+    <main id="mainApp" class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-4 sm:mt-6 hidden relative z-10">
         
         <!-- BANNER MOTIVASI ELEGAN DENGAN FOTO HOME (Spans 3 Columns) -->
         <div class="lg:col-span-3">
-            <div class="relative rounded-3xl overflow-hidden shadow-lg shadow-slate-200/70 border border-slate-200/90 bg-white min-h-[190px] sm:min-h-[220px] flex items-center">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-[#242c26] bg-[#141815] min-h-[190px] sm:min-h-[220px] flex items-center">
                 <!-- Foto Home yang Terang & Elegan -->
                 <img id="homeBannerImg" 
                      src="/foto%20home.jpg" 
                      alt="Motivasi HematKu" 
                      class="absolute inset-0 w-full h-full object-cover object-center">
                 
-                <!-- Gradasi Putih Mewah (Glass Luxury) Agar Foto Terlihat Jernih Sekaligus Teks Terbaca Tajam -->
-                <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/40 md:to-transparent"></div>
+                <!-- Gradasi Dark Folia Mewah Agar Foto Jelas & Teks Kontras Bersinar -->
+                <div class="absolute inset-0 bg-gradient-to-r from-[#0c0f0d]/95 via-[#0c0f0d]/80 to-[#0c0f0d]/40 md:to-transparent"></div>
                 
                 <div class="relative z-10 w-full p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-5">
                     <div class="max-w-2xl">
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/70 mb-2.5 shadow-xs">
-                            <i class="fa-solid fa-sparkles text-amber-500"></i> Semangat Keuangan Hari Ini
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-[#121613]/90 text-[#a3e635] border border-[#a3e635]/30 mb-2.5 shadow-[0_0_15px_rgba(163,230,53,0.2)]">
+                            <i class="fa-solid fa-sparkles text-[#a3e635]"></i> Semangat Finansial Hari Ini
                         </div>
-                        <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 leading-tight">
-                            Semangat Berproses, <span id="bannerUserName" class="text-emerald-600 underline decoration-emerald-300 decoration-4 underline-offset-4">Rio</span>! 🚀
+                        <h2 class="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-white leading-tight">
+                            Semangat Berproses, <span id="bannerUserName" class="text-[#a3e635] underline decoration-[#a3e635]/50 decoration-4 underline-offset-4">Rio</span>! 🚀
                         </h2>
-                        <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal max-w-xl">
+                        <p class="text-xs sm:text-sm text-[#b0bcb4] mt-2 leading-relaxed font-normal max-w-xl">
                             "Setiap rupiah yang kamu catat dengan sadar membawamu selangkah lebih dekat menuju tujuan dan kebebasan finansialmu."
                         </p>
                     </div>
                     
-                    <!-- Kotak Motivasi Kanan (Glass Minimalis) -->
-                    <div class="flex items-center gap-3 bg-white/90 backdrop-blur-md px-4 sm:px-5 py-3 rounded-2xl border border-slate-200/80 shadow-md text-xs">
-                        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg font-bold">
+                    <!-- Kotak Motivasi Kanan (Folia Glass Minimalis) -->
+                    <div class="flex items-center gap-3 bg-[#121613]/90 backdrop-blur-md px-4 sm:px-5 py-3 rounded-2xl border border-[#273229] shadow-xl text-xs">
+                        <div class="w-10 h-10 rounded-xl bg-[#a3e635]/15 text-[#a3e635] flex items-center justify-center text-lg font-black border border-[#a3e635]/30">
                             <i class="fa-solid fa-trophy"></i>
                         </div>
                         <div>
-                            <div class="font-bold text-slate-800 text-sm">Fokus & Konsisten</div>
-                            <div class="text-slate-500 text-[11px]">Kendalikan masa depanmu hari ini!</div>
+                            <div class="font-extrabold text-white text-sm">Fokus & Konsisten</div>
+                            <div class="text-[#8a958e] text-[11px]">Kendalikan masa depanmu hari ini!</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- KOLOM KIRI: Form Input / Edit Data (Putih Elegan) -->
+        <!-- KOLOM KIRI: Form Input / Edit Data (Folia Dark Card) -->
         <section class="lg:col-span-1">
-            <div class="bg-white p-5 sm:p-6 rounded-3xl shadow-sm border border-slate-200/80 lg:sticky lg:top-24">
-                <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+            <div class="bg-[#141815] p-5 sm:p-6 rounded-3xl shadow-xl border border-[#242c26] lg:sticky lg:top-24">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-[#202722]">
                     <div>
-                        <h2 id="formTitle" class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
-                            <i class="fa-solid fa-circle-plus text-emerald-600"></i> <span>Tambah Transaksi</span>
+                        <h2 id="formTitle" class="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-plus text-[#a3e635]"></i> <span>Tambah Transaksi</span>
                         </h2>
-                        <p class="text-xs text-slate-400 mt-0.5">Catat setiap arus kas keluar & masuk.</p>
+                        <p class="text-xs text-[#8a958e] mt-0.5">Catat setiap mutasi keluar & masuk.</p>
                     </div>
-                    <button id="cancelEditBtn" class="hidden text-xs text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 bg-rose-50 px-2.5 py-1 rounded-lg">
+                    <button id="cancelEditBtn" class="hidden text-xs text-[#f87171] hover:text-rose-400 font-bold flex items-center gap-1 bg-[#281618] px-2.5 py-1 rounded-lg border border-[#402024]">
                         <i class="fa-solid fa-xmark"></i> Batal
                     </button>
                 </div>
@@ -265,23 +298,23 @@
 
                     <!-- Tanggal -->
                     <div>
-                        <label for="date" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Tanggal</label>
+                        <label for="date" class="block text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1.5">Tanggal</label>
                         <input type="date" id="date" required 
-                            class="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 text-sm font-medium transition">
+                            class="w-full px-3.5 py-2.5 bg-[#181e19] border border-[#273129] rounded-xl text-white focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/20 text-sm font-medium transition">
                     </div>
 
                     <!-- Deskripsi -->
                     <div>
-                        <label for="description" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Keterangan / Catatan</label>
+                        <label for="description" class="block text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1.5">Keterangan / Catatan</label>
                         <input type="text" id="description" placeholder="Contoh: Gaji Pokok / Beli Kopi" required 
-                            class="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 text-sm font-medium transition placeholder:text-slate-400">
+                            class="w-full px-3.5 py-2.5 bg-[#181e19] border border-[#273129] rounded-xl text-white placeholder-[#556157] focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/20 text-sm font-medium transition">
                     </div>
 
                     <!-- Tipe (Pemasukan / Pengeluaran) -->
                     <div>
-                        <label for="type" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Jenis Transaksi</label>
+                        <label for="type" class="block text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1.5">Jenis Transaksi</label>
                         <select id="type" 
-                            class="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 text-sm font-medium transition cursor-pointer">
+                            class="w-full px-3.5 py-2.5 bg-[#181e19] border border-[#273129] rounded-xl text-white focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/20 text-sm font-bold transition cursor-pointer">
                             <option value="income">🟢 Pemasukan (+)</option>
                             <option value="expense">🔴 Pengeluaran (-)</option>
                         </select>
@@ -289,47 +322,47 @@
 
                     <!-- Kategori -->
                     <div>
-                        <label for="category" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Kategori</label>
+                        <label for="category" class="block text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1.5">Kategori</label>
                         <select id="category" 
-                            class="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 text-sm font-medium transition cursor-pointer">
+                            class="w-full px-3.5 py-2.5 bg-[#181e19] border border-[#273129] rounded-xl text-white focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/20 text-sm font-semibold transition cursor-pointer">
                             <!-- Diisi via JavaScript -->
                         </select>
                     </div>
 
                     <!-- Jumlah Nominal -->
                     <div>
-                        <label for="amount" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nominal (Rp)</label>
+                        <label for="amount" class="block text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1.5">Nominal (Rp)</label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-xs font-bold">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#a3e635] text-xs font-black">
                                 Rp
                             </span>
                             <input type="number" id="amount" placeholder="0" min="1" required 
-                                class="w-full pl-10 pr-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 text-sm font-bold text-slate-900 transition">
+                                class="w-full pl-11 pr-3.5 py-2.5 bg-[#181e19] border border-[#273129] rounded-xl text-white focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/20 text-sm font-black transition">
                         </div>
                     </div>
 
-                    <!-- Tombol Submit -->
+                    <!-- Tombol Submit (Signature Folia Button) -->
                     <button type="submit" id="submitTransactionBtn"
-                        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition duration-200 text-sm shadow-md shadow-emerald-600/20 hover:shadow-lg flex items-center justify-center gap-2 touch-manipulation">
-                        <i class="fa-solid fa-plus"></i> <span>Simpan Transaksi</span>
+                        class="w-full bg-[#a3e635] hover:bg-[#bef264] text-[#0c0f0d] font-black py-3 rounded-xl transition duration-200 text-sm shadow-[0_0_20px_rgba(163,230,53,0.3)] hover:shadow-[0_0_30px_rgba(163,230,53,0.5)] flex items-center justify-center gap-2 touch-manipulation active:scale-[0.99]">
+                        <i class="fa-solid fa-plus font-bold"></i> <span>Simpan Transaksi</span>
                     </button>
                 </form>
             </div>
         </section>
 
-        <!-- KOLOM KANAN: Ringkasan Saldo & Tabel Riwayat Transaksi -->
+        <!-- KOLOM KANAN: Ringkasan Saldo (Folia Top Metric Cards) & Tabel Riwayat -->
         <section class="lg:col-span-2 space-y-5 sm:space-y-6">
 
-            <!-- Filter Bulan dan Tahun (Modern Clean White) -->
-            <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
-                <div class="font-bold text-slate-800 text-sm flex items-center gap-2">
-                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+            <!-- Filter Bulan dan Tahun (Dark Luxury Bar) -->
+            <div class="bg-[#141815] p-4 sm:p-5 rounded-3xl shadow-xl border border-[#242c26] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+                <div class="font-extrabold text-white text-sm flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-[#1e271f] text-[#a3e635] flex items-center justify-center text-xs border border-[#a3e635]/20">
                         <i class="fa-solid fa-calendar-days"></i>
                     </span>
                     Periode Laporan:
                 </div>
-                <div class="grid grid-cols-2 sm:flex items-center gap-2 w-full sm:w-auto">
-                    <select id="filterMonth" class="w-full sm:w-auto px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 focus:ring-2 focus:ring-emerald-500 focus:bg-white cursor-pointer transition">
+                <div class="grid grid-cols-2 sm:flex items-center gap-2.5 w-full sm:w-auto">
+                    <select id="filterMonth" class="w-full sm:w-auto px-3.5 py-2 bg-[#181e19] border border-[#273129] rounded-xl text-xs sm:text-sm font-bold text-white focus:ring-2 focus:ring-[#a3e635]/20 focus:border-[#a3e635] cursor-pointer transition">
                         <option value="0">Januari</option>
                         <option value="1">Februari</option>
                         <option value="2">Maret</option>
@@ -344,78 +377,81 @@
                         <option value="11">Desember</option>
                     </select>
 
-                    <select id="filterYear" class="w-full sm:w-auto px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 focus:ring-2 focus:ring-emerald-500 focus:bg-white cursor-pointer transition">
+                    <select id="filterYear" class="w-full sm:w-auto px-3.5 py-2 bg-[#181e19] border border-[#273129] rounded-xl text-xs sm:text-sm font-bold text-white focus:ring-2 focus:ring-[#a3e635]/20 focus:border-[#a3e635] cursor-pointer transition">
                         <!-- Diisi otomatis oleh JavaScript -->
                     </select>
                 </div>
             </div>
 
-            <!-- Dashboard Card Ringkasan Putih Elegan -->
+            <!-- DASHBOARD CARDS (Tepat seperti kartu Net Income, Expenses, Savings Rate di Folia!) -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
-                <!-- Card Pemasukan -->
-                <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between hover:border-emerald-200 transition-colors">
+                
+                <!-- Card Pemasukan (Net Income Glow) -->
+                <div class="bg-gradient-to-b from-[#1b2b1e]/90 via-[#141815] to-[#141815] p-5 rounded-3xl border border-[#26382a] shadow-xl flex flex-col justify-between hover:border-[#a3e635]/40 transition-all">
                     <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider">Total Masuk</span>
-                            <span class="w-7 h-7 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+                        <div class="flex items-center justify-between mb-2.5">
+                            <span class="text-[11px] font-bold text-[#8a958e] uppercase tracking-wider">Total Pemasukan</span>
+                            <span class="w-8 h-8 rounded-xl bg-[#a3e635]/20 text-[#a3e635] border border-[#a3e635]/30 flex items-center justify-center text-xs">
                                 <i class="fa-solid fa-arrow-down"></i>
                             </span>
                         </div>
-                        <div id="totalIncome" class="text-xl sm:text-2xl font-extrabold text-slate-900 break-words tracking-tight">Rp 0</div>
+                        <div id="totalIncome" class="text-2xl sm:text-3xl font-black text-white break-words tracking-tight">Rp 0</div>
                     </div>
-                    <div class="mt-3 text-[11px] text-emerald-600 font-medium flex items-center gap-1">
-                        <i class="fa-solid fa-circle text-[6px]"></i> Pemasukan terdata
+                    <div class="mt-3.5 text-[11px] text-[#a3e635] font-bold flex items-center gap-1.5">
+                        <span class="inline-block w-2 h-2 rounded-full bg-[#a3e635] shadow-[0_0_8px_#a3e635]"></span>
+                        <span>Pemasukan Terdata</span>
                     </div>
                 </div>
 
-                <!-- Card Pengeluaran -->
-                <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between hover:border-rose-200 transition-colors">
+                <!-- Card Pengeluaran (Total Expenses Glow) -->
+                <div class="bg-gradient-to-b from-[#2d181c]/90 via-[#141815] to-[#141815] p-5 rounded-3xl border border-[#3d2328] shadow-xl flex flex-col justify-between hover:border-[#f87171]/40 transition-all">
                     <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-[11px] font-bold text-rose-600 uppercase tracking-wider">Total Keluar</span>
-                            <span class="w-7 h-7 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center text-xs">
+                        <div class="flex items-center justify-between mb-2.5">
+                            <span class="text-[11px] font-bold text-[#8a958e] uppercase tracking-wider">Total Pengeluaran</span>
+                            <span class="w-8 h-8 rounded-xl bg-[#f87171]/20 text-[#f87171] border border-[#f87171]/30 flex items-center justify-center text-xs">
                                 <i class="fa-solid fa-arrow-up"></i>
                             </span>
                         </div>
-                        <div id="totalExpense" class="text-xl sm:text-2xl font-extrabold text-slate-900 break-words tracking-tight">Rp 0</div>
+                        <div id="totalExpense" class="text-2xl sm:text-3xl font-black text-white break-words tracking-tight">Rp 0</div>
                     </div>
-                    <div class="mt-3 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                        <i class="fa-solid fa-circle text-[6px]"></i> Pengeluaran terdata
+                    <div class="mt-3.5 text-[11px] text-[#f87171] font-bold flex items-center gap-1.5">
+                        <span class="inline-block w-2 h-2 rounded-full bg-[#f87171] shadow-[0_0_8px_#f87171]"></span>
+                        <span>Pengeluaran Terdata</span>
                     </div>
                 </div>
 
-                <!-- Card Selisih Bersih -->
-                <div id="balanceCard" class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between transition-all duration-300">
+                <!-- Card Selisih Bersih (Savings Rate Glow) -->
+                <div id="balanceCard" class="bg-gradient-to-b from-[#162725]/90 via-[#141815] to-[#141815] p-5 rounded-3xl border border-[#233530] shadow-xl flex flex-col justify-between transition-all duration-300">
                     <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Sisa Saldo</span>
-                            <span id="statusBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold">Netral</span>
+                        <div class="flex items-center justify-between mb-2.5">
+                            <span class="text-[11px] font-bold text-[#8a958e] uppercase tracking-wider">Sisa Saldo Bersih</span>
+                            <span id="statusBadge" class="text-[10px] px-2.5 py-0.5 rounded-full bg-[#1c241e] text-[#8a958e] font-extrabold border border-[#2b372e]">Netral</span>
                         </div>
-                        <div id="netBalance" class="text-xl sm:text-2xl font-extrabold text-slate-900 break-words tracking-tight">Rp 0</div>
+                        <div id="netBalance" class="text-2xl sm:text-3xl font-black text-white break-words tracking-tight">Rp 0</div>
                     </div>
-                    <div class="mt-3 flex justify-between items-center">
-                        <p id="statusMessage" class="text-xs text-slate-500 font-medium">Belum ada transaksi</p>
-                        <span id="balanceIcon" class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">
+                    <div class="mt-3.5 flex justify-between items-center">
+                        <p id="statusMessage" class="text-xs text-[#8a958e] font-semibold">Belum ada transaksi</p>
+                        <span id="balanceIcon" class="w-8 h-8 rounded-xl bg-[#1c221e] text-[#8a958e] border border-[#273229] flex items-center justify-center text-xs">
                             <i class="fa-solid fa-scale-balanced"></i>
                         </span>
                     </div>
                 </div>
             </div>
 
-            <!-- Tabel Riwayat Transaksi (Putih Bersih & Rapi) -->
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-200/80 overflow-hidden">
-                <div class="p-4 sm:p-5 border-b border-slate-100 flex justify-between items-center">
+            <!-- Tabel Riwayat Transaksi (Dark Folia Table) -->
+            <div class="bg-[#141815] rounded-3xl shadow-xl border border-[#242c26] overflow-hidden">
+                <div class="p-4 sm:p-5 border-b border-[#202722] flex justify-between items-center">
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-base">Riwayat Transaksi</h3>
-                        <p class="text-xs text-slate-400 mt-0.5">Daftar semua mutasi keuangan bulan ini.</p>
+                        <h3 class="font-black text-white text-base">Riwayat Transaksi</h3>
+                        <p class="text-xs text-[#8a958e] mt-0.5">Daftar semua mutasi keuangan periode ini.</p>
                     </div>
-                    <span id="transactionCount" class="text-xs text-slate-600 font-bold bg-slate-100 px-3 py-1 rounded-full">0 Transaksi</span>
+                    <span id="transactionCount" class="text-xs text-[#a3e635] font-extrabold bg-[#1a231b] border border-[#a3e635]/30 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(163,230,53,0.15)]">0 Transaksi</span>
                 </div>
 
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse min-w-[540px] sm:min-w-full">
                         <thead>
-                            <tr class="bg-slate-50/70 text-slate-500 text-[11px] uppercase tracking-wider font-bold border-b border-slate-100">
+                            <tr class="bg-[#0f1310] text-[#8a958e] text-[11px] uppercase tracking-wider font-extrabold border-b border-[#202722]">
                                 <th class="py-3 px-4">Tanggal</th>
                                 <th class="py-3 px-4">Deskripsi</th>
                                 <th class="py-3 px-4">Kategori</th>
@@ -423,18 +459,18 @@
                                 <th class="py-3 px-4 text-center">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody id="transactionList" class="divide-y divide-slate-100 text-xs sm:text-sm font-medium">
+                        <tbody id="transactionList" class="divide-y divide-[#1e2520] text-xs sm:text-sm font-medium">
                             <!-- Data tabel di-render melalui JavaScript -->
                         </tbody>
                     </table>
                 </div>
 
                 <div id="emptyState" class="p-8 sm:p-12 text-center hidden">
-                    <div class="w-14 h-14 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-xs">
+                    <div class="w-14 h-14 bg-[#1a231b] text-[#a3e635] border border-[#a3e635]/30 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-[0_0_20px_rgba(163,230,53,0.2)]">
                         <i class="fa-regular fa-folder-open text-2xl"></i>
                     </div>
-                    <p class="text-slate-800 text-sm font-bold">Belum Ada Transaksi Bulan Ini</p>
-                    <p class="text-slate-400 text-xs mt-1 max-w-sm mx-auto">Yuk mulai catat pengeluaran atau pemasukan pertamamu agar finansialmu semakin terkontrol!</p>
+                    <p class="text-white text-sm font-black">Belum Ada Transaksi Bulan Ini</p>
+                    <p class="text-[#8a958e] text-xs mt-1 max-w-sm mx-auto">Yuk catat pemasukan atau pengeluaran pertamamu untuk mulai membangun kebiasaan finansial yang hebat!</p>
                 </div>
             </div>
         </section>
