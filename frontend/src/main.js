@@ -385,24 +385,24 @@ function renderTable(data) {
         const amountSign = isIncome ? '+' : '-';
 
         row.innerHTML = `
-            <td class="py-3 px-4 text-xs text-[#8a958e] whitespace-nowrap">${formatDate(item.date)}</td>
-            <td class="py-3 px-4 font-bold text-white max-w-[140px] sm:max-w-xs truncate" title="${escapeHtml(item.description)}">${escapeHtml(item.description)}</td>
-            <td class="py-3 px-4 text-xs whitespace-nowrap">
-                <span class="px-2.5 py-1 rounded-lg bg-[#1a231b] text-[#b0bcb4] border border-[#29352b] font-semibold text-xs">
+            <td class="py-2.5 sm:py-3 px-3 sm:px-4 text-[11px] sm:text-xs text-[#8a958e] whitespace-nowrap">${formatDate(item.date)}</td>
+            <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white max-w-[110px] sm:max-w-xs truncate text-xs sm:text-sm" title="${escapeHtml(item.description)}">${escapeHtml(item.description)}</td>
+            <td class="py-2.5 sm:py-3 px-3 sm:px-4 text-xs whitespace-nowrap">
+                <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg bg-[#1a231b] text-[#b0bcb4] border border-[#29352b] font-semibold text-[10px] sm:text-xs">
                     ${item.category}
                 </span>
             </td>
-            <td class="py-3 px-4 text-right ${amountClass} whitespace-nowrap text-sm tracking-tight">
+            <td class="py-2.5 sm:py-3 px-3 sm:px-4 text-right ${amountClass} whitespace-nowrap text-xs sm:text-sm tracking-tight">
                 ${amountSign} ${formatRupiah(item.amount)}
             </td>
-            <td class="py-3 px-4 text-center whitespace-nowrap space-x-1.5">
+            <td class="py-2.5 sm:py-3 px-3 sm:px-4 text-center whitespace-nowrap space-x-1 sm:space-x-1.5">
                 <button onclick="startEditTransaction(${item.id})" 
-                    class="text-[#8a958e] hover:text-amber-400 p-1.5 sm:p-2 rounded-xl hover:bg-[#25231c] transition-colors touch-manipulation inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8"
+                    class="text-[#8a958e] hover:text-amber-400 p-1 sm:p-2 rounded-lg sm:rounded-xl hover:bg-[#25231c] transition-colors touch-manipulation inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8"
                     title="Edit Transaksi">
                     <i class="fa-regular fa-pen-to-square text-xs sm:text-sm"></i>
                 </button>
                 <button onclick="deleteTransactionItem(${item.id})" 
-                    class="text-[#8a958e] hover:text-[#f87171] p-1.5 sm:p-2 rounded-xl hover:bg-[#281618] transition-colors touch-manipulation inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8"
+                    class="text-[#8a958e] hover:text-[#f87171] p-1 sm:p-2 rounded-lg sm:rounded-xl hover:bg-[#281618] transition-colors touch-manipulation inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8"
                     title="Hapus Transaksi">
                     <i class="fa-regular fa-trash-can text-xs sm:text-sm"></i>
                 </button>
