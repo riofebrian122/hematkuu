@@ -18,9 +18,10 @@ backend/.env.*
 !backend/.env.example
 
 # 3. Build Outputs
-dist/
+/dist/
 dist-ssr/
 # frontend/dist/ disertakan agar Vercel dapat langsung menyajikan website production
+!frontend/dist/**
 *.local
 
 # 4. Logs & Debugging

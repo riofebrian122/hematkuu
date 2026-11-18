@@ -169,11 +169,11 @@
     </header>
 
     <!-- SECTION LOGIN & REGISTER (FULLY RESPONSIVE) -->
-    <section id="authSection" class="max-w-4xl mx-auto px-3 sm:px-4 mt-4 sm:mt-10 relative z-10">
+    <section id="authSection" class="max-w-4xl mx-auto px-3 sm:px-4 mt-2 sm:mt-8 md:mt-10 relative z-10">
         <div class="bg-[#141815] rounded-2xl sm:rounded-3xl shadow-2xl border border-[#242c26] overflow-hidden grid grid-cols-1 md:grid-cols-12 transition-all">
             
-            <!-- KOLOM KIRI (FOTO CINEMATIC DENGAN GLASS MOTIVASI DARK) -->
-            <div class="md:col-span-6 relative min-h-[220px] sm:min-h-[280px] md:min-h-[520px] overflow-hidden flex flex-col justify-between p-4 sm:p-6 md:p-8">
+            <!-- KOLOM KIRI (FOTO CINEMATIC DENGAN GLASS MOTIVASI DARK) - HANYA TAMPIL DI DESKTOP/LAPTOP AGAR DI HP LANGSUNG PAS DI SCREEN -->
+            <div class="hidden md:flex md:col-span-6 relative md:min-h-[520px] overflow-hidden flex-col justify-between p-6 md:p-8">
                 <!-- Foto Asli yang Elegan -->
                 <img id="loginHeroImg" 
                      src="/foto%20screen.jpg" 
@@ -181,36 +181,36 @@
                      class="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700">
                 
                 <!-- Lapisan Dark Gradient Vignette Mewah -->
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0c0f0d] via-[#0c0f0d]/60 to-[#0c0f0d]/20 md:bg-gradient-to-t md:from-[#0c0f0d]/95 md:via-[#0c0f0d]/50 md:to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0c0f0d]/95 via-[#0c0f0d]/50 to-transparent"></div>
                 
                 <!-- Badge Atas: Mindset Keuangan -->
                 <div class="relative z-10 flex items-center justify-between gap-2">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold bg-[#121613]/90 text-[#a3e635] border border-[#a3e635]/30 backdrop-blur-md shadow-[0_0_15px_rgba(163,230,53,0.2)]">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-extrabold bg-[#121613]/90 text-[#a3e635] border border-[#a3e635]/30 backdrop-blur-md shadow-[0_0_15px_rgba(163,230,53,0.2)]">
                         <i class="fa-solid fa-bolt text-[#a3e635]"></i> WEALTH HABIT
                     </span>
-                    <span class="inline-flex items-center gap-1 px-2 sm:px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold bg-[#141915]/90 text-white border border-[#2b362e] backdrop-blur-sm">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#141915]/90 text-white border border-[#2b362e] backdrop-blur-sm">
                         <i class="fa-solid fa-shield-halved text-[#a3e635] text-xs"></i> Aman & Terenkripsi
                     </span>
                 </div>
 
                 <!-- Bagian Kutipan Motivasi Finansial -->
-                <div class="relative z-10 mt-auto pt-4 sm:pt-6 md:pt-8">
-                    <div class="bg-[#121613]/90 backdrop-blur-md p-3.5 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl border border-[#263128] shadow-2xl text-white">
-                        <div class="flex items-center gap-1 text-[#a3e635] text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
+                <div class="relative z-10 mt-auto pt-8">
+                    <div class="bg-[#121613]/90 backdrop-blur-md p-6 rounded-2xl border border-[#263128] shadow-2xl text-white">
+                        <div class="flex items-center gap-1 text-[#a3e635] text-xs font-bold uppercase tracking-wider mb-2">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <span class="text-[#8a958e] ml-1.5 font-semibold text-[10px] sm:text-[11px]">Financial Freedom</span>
+                            <span class="text-[#8a958e] ml-1.5 font-semibold text-[11px]">Financial Freedom</span>
                         </div>
-                        <h2 class="text-base sm:text-xl md:text-2xl font-black text-white tracking-tight leading-snug">
+                        <h2 class="text-xl md:text-2xl font-black text-white tracking-tight leading-snug">
                             Kendalikan Uangmu, <br><span class="text-[#a3e635]">Bangun Masa Depanmu.</span>
                         </h2>
-                        <p class="text-[11px] sm:text-xs md:text-sm text-[#b0bcb4] mt-1.5 sm:mt-2 leading-relaxed">
+                        <p class="text-xs md:text-sm text-[#b0bcb4] mt-2 leading-relaxed">
                             "Setiap rupiah yang kamu catat dan hemat hari ini adalah pondasi kuat kebebasan finansial esok hari."
                         </p>
-                        <div class="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-[#202722] flex items-center justify-between text-[10px] sm:text-[11px] text-[#8a958e] font-semibold">
+                        <div class="mt-4 pt-3 border-t border-[#202722] flex items-center justify-between text-[11px] text-[#8a958e] font-semibold">
                             <span class="flex items-center gap-1 text-[#a3e635]">
                                 <i class="fa-solid fa-circle-check"></i> Disiplin Harian
                             </span>
@@ -220,63 +220,84 @@
                 </div>
             </div>
 
-            <!-- KOLOM KANAN: FORMULIR LOGIN / REGISTER (DARK OBSIDIAN STYLE) -->
-            <div class="md:col-span-6 p-5 sm:p-8 md:p-10 flex flex-col justify-center bg-[#141815]">
+            <!-- KOLOM KANAN: FORMULIR LOGIN / REGISTER (DARK OBSIDIAN STYLE - LANGSUNG PAS DI HP TANPA SCROLL) -->
+            <div class="md:col-span-6 p-4 sm:p-7 md:p-10 flex flex-col justify-center bg-[#141815]">
+                
+                <!-- Slim Mobile Hero Header (Elegan, estetik & ringkas - hanya muncul di HP) -->
+                <div class="md:hidden relative h-14 rounded-xl overflow-hidden mb-3 border border-[#242c26] shadow-md flex items-center">
+                    <img src="/foto%20screen.jpg" alt="HematKu Motivation" class="absolute inset-0 w-full h-full object-cover object-center filter brightness-60">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#0c0f0d]/95 via-[#0c0f0d]/80 to-[#0c0f0d]/40"></div>
+                    <div class="relative z-10 w-full px-3.5 flex items-center justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-[10px] font-extrabold text-[#a3e635]">
+                                <i class="fa-solid fa-bolt"></i> WEALTH HABIT
+                            </div>
+                            <p class="text-[11px] font-black text-white leading-tight">Kendalikan Uangmu, Bangun Masa Depan</p>
+                        </div>
+                        <span class="text-[10px] text-[#a3e635] bg-[#141915]/90 px-2 py-0.5 rounded-full border border-[#2b362e] font-semibold flex items-center gap-1 shrink-0">
+                            <i class="fa-solid fa-shield-halved text-[9px]"></i> Aman
+                        </span>
+                    </div>
+                </div>
+
                 <!-- Sambutan -->
-                <div class="mb-5 sm:mb-6">
-                    <h3 class="text-lg sm:text-2xl font-black text-white tracking-tight">Selamat Datang 👋</h3>
-                    <p class="text-xs sm:text-sm text-[#8a958e] mt-1">Masuk untuk mencatat mutasi & pantau perkembangan tabunganmu.</p>
+                <div class="mb-3 sm:mb-5">
+                    <h3 class="text-base sm:text-2xl font-black text-white tracking-tight">Selamat Datang 👋</h3>
+                    <p class="text-xs sm:text-sm text-[#8a958e] mt-0.5">Masuk untuk mencatat mutasi & pantau tabungan.</p>
                 </div>
 
                 <!-- Tab Switcher Dark Folia -->
-                <div class="flex p-1 bg-[#0f1210] rounded-2xl mb-5 sm:mb-6 border border-[#202722]">
-                    <button id="tabLogin" class="flex-1 py-2 sm:py-2.5 text-xs sm:text-sm font-extrabold text-[#0c0f0d] bg-[#a3e635] rounded-xl shadow-[0_0_15px_rgba(163,230,53,0.25)] flex items-center justify-center gap-2 transition duration-200">
+                <div class="flex p-1 bg-[#0f1210] rounded-xl sm:rounded-2xl mb-3 sm:mb-5 border border-[#202722]">
+                    <button id="tabLogin" class="flex-1 py-1.5 sm:py-2.5 text-xs sm:text-sm font-extrabold text-[#0c0f0d] bg-[#a3e635] rounded-lg sm:rounded-xl shadow-[0_0_15px_rgba(163,230,53,0.25)] flex items-center justify-center gap-2 transition duration-200">
                         <i class="fa-solid fa-arrow-right-to-bracket text-xs"></i> Masuk
                     </button>
-                    <button id="tabRegister" class="flex-1 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-[#8a958e] hover:text-white rounded-xl flex items-center justify-center gap-2 transition duration-200">
+                    <button id="tabRegister" class="flex-1 py-1.5 sm:py-2.5 text-xs sm:text-sm font-bold text-[#8a958e] hover:text-white rounded-lg sm:rounded-xl flex items-center justify-center gap-2 transition duration-200">
                         <i class="fa-solid fa-user-plus text-xs"></i> Daftar Akun
                     </button>
                 </div>
 
-                <div id="authAlert" class="hidden mb-4 p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all"></div>
+                <div id="authAlert" class="hidden mb-3 p-2.5 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all"></div>
 
-                <form id="authForm" class="space-y-3.5 sm:space-y-4">
+                <form id="authForm" class="space-y-2.5 sm:space-y-4">
                     <div>
-                        <label for="authUsername" class="block text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1.5">
+                        <label for="authUsername" class="block text-[11px] sm:text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1">
                             Username / Akun
                         </label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#5a665e] text-sm">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#5a665e] text-xs sm:text-sm">
                                 <i class="fa-regular fa-user"></i>
                             </span>
                             <input type="text" id="authUsername" placeholder="Masukkan username Anda..." required minlength="3"
-                                class="w-full pl-10 pr-3.5 py-2.5 sm:py-3 bg-[#181e19] border border-[#273129] rounded-xl text-white placeholder-[#556157] focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/25 text-sm font-medium transition">
+                                class="w-full pl-9 sm:pl-10 pr-3 py-2 sm:py-3 bg-[#181e19] border border-[#273129] rounded-xl text-white placeholder-[#556157] focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/25 text-xs sm:text-sm font-medium transition">
                         </div>
                     </div>
 
                     <div>
-                        <label for="authPassword" class="block text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1.5">
+                        <label for="authPassword" class="block text-[11px] sm:text-xs font-bold text-[#8a958e] uppercase tracking-wider mb-1">
                             Password
                         </label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#5a665e] text-sm">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#5a665e] text-xs sm:text-sm">
                                 <i class="fa-regular fa-lock"></i>
                             </span>
                             <input type="password" id="authPassword" placeholder="Minimal 4 karakter..." required minlength="4"
-                                class="w-full pl-10 pr-3.5 py-2.5 sm:py-3 bg-[#181e19] border border-[#273129] rounded-xl text-white placeholder-[#556157] focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/25 text-sm font-medium transition">
+                                class="w-full pl-9 sm:pl-10 pr-3 py-2 sm:py-3 bg-[#181e19] border border-[#273129] rounded-xl text-white placeholder-[#556157] focus:outline-none focus:border-[#a3e635] focus:ring-2 focus:ring-[#a3e635]/25 text-xs sm:text-sm font-medium transition">
                         </div>
                     </div>
 
                     <button type="submit" id="authSubmitBtn"
-                        class="w-full bg-[#a3e635] hover:bg-[#bef264] text-[#0c0f0d] font-black py-3 sm:py-3.5 rounded-xl transition-all duration-200 text-sm shadow-[0_0_25px_rgba(163,230,53,0.35)] hover:shadow-[0_0_35px_rgba(163,230,53,0.5)] flex items-center justify-center gap-2 transform active:scale-[0.99] touch-manipulation">
-                        <i class="fa-solid fa-arrow-right-to-bracket text-sm"></i> <span id="authSubmitText">Masuk ke HematKu</span>
+                        class="w-full bg-[#a3e635] hover:bg-[#bef264] text-[#0c0f0d] font-black py-2.5 sm:py-3.5 rounded-xl transition-all duration-200 text-xs sm:text-sm shadow-[0_0_25px_rgba(163,230,53,0.35)] hover:shadow-[0_0_35px_rgba(163,230,53,0.5)] flex items-center justify-center gap-2 transform active:scale-[0.99] touch-manipulation mt-1">
+                        <i class="fa-solid fa-arrow-right-to-bracket text-xs sm:text-sm"></i> <span id="authSubmitText">Masuk ke HematKu</span>
                     </button>
                 </form>
 
-                <p id="authHint" class="text-xs text-[#8a958e] text-center mt-5 sm:mt-6">
-                    Belum punya akun? Klik tab <b class="text-[#a3e635]">Daftar Akun</b> di atas untuk membuat akun baru.
+                <p id="authHint" class="text-[11px] sm:text-xs text-[#8a958e] text-center mt-3 sm:mt-5">
+                    Belum punya akun? Klik tab <b class="text-[#a3e635]">Daftar Akun</b> di atas.
                 </p>
             </div>
+
+        </div>
+    </section>
 
         </div>
     </section>

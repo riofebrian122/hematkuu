@@ -282,13 +282,13 @@ function switchAuthTab(tab) {
     hideAlert();
 
     if (tab === 'login') {
-        tabLogin.className = "flex-1 py-2.5 text-xs sm:text-sm font-extrabold text-[#0c0f0d] bg-[#a3e635] rounded-xl shadow-[0_0_15px_rgba(163,230,53,0.25)] flex items-center justify-center gap-2 transition duration-200";
-        tabRegister.className = "flex-1 py-2.5 text-xs sm:text-sm font-bold text-[#8a958e] hover:text-white rounded-xl flex items-center justify-center gap-2 transition duration-200";
+        tabLogin.className = "flex-1 py-1.5 sm:py-2.5 text-xs sm:text-sm font-extrabold text-[#0c0f0d] bg-[#a3e635] rounded-lg sm:rounded-xl shadow-[0_0_15px_rgba(163,230,53,0.25)] flex items-center justify-center gap-2 transition duration-200";
+        tabRegister.className = "flex-1 py-1.5 sm:py-2.5 text-xs sm:text-sm font-bold text-[#8a958e] hover:text-white rounded-lg sm:rounded-xl flex items-center justify-center gap-2 transition duration-200";
         authSubmitText.textContent = "Masuk ke HematKu";
-        authHint.innerHTML = "Belum punya akun? Klik tab <b class=\"text-[#a3e635]\">Daftar Akun</b> di atas untuk membuat akun baru.";
+        authHint.innerHTML = "Belum punya akun? Klik tab <b class=\"text-[#a3e635]\">Daftar Akun</b> di atas.";
     } else {
-        tabRegister.className = "flex-1 py-2.5 text-xs sm:text-sm font-extrabold text-[#0c0f0d] bg-[#a3e635] rounded-xl shadow-[0_0_15px_rgba(163,230,53,0.25)] flex items-center justify-center gap-2 transition duration-200";
-        tabLogin.className = "flex-1 py-2.5 text-xs sm:text-sm font-bold text-[#8a958e] hover:text-white rounded-xl flex items-center justify-center gap-2 transition duration-200";
+        tabRegister.className = "flex-1 py-1.5 sm:py-2.5 text-xs sm:text-sm font-extrabold text-[#0c0f0d] bg-[#a3e635] rounded-lg sm:rounded-xl shadow-[0_0_15px_rgba(163,230,53,0.25)] flex items-center justify-center gap-2 transition duration-200";
+        tabLogin.className = "flex-1 py-1.5 sm:py-2.5 text-xs sm:text-sm font-bold text-[#8a958e] hover:text-white rounded-lg sm:rounded-xl flex items-center justify-center gap-2 transition duration-200";
         authSubmitText.textContent = "Buat Akun Sekarang";
         authHint.innerHTML = "Sudah punya akun? Klik tab <b class=\"text-[#a3e635]\">Masuk</b> untuk masuk.";
     }
