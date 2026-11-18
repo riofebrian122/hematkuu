@@ -232,6 +232,7 @@ function initEventListeners() {
 // 2. VIEW NAVIGATION & MOBILE SHELL
 // =================================================================
 window.switchView = function(viewName) {
+    if (!currentUser) return;
     currentAppView = viewName;
 
     // Sembunyikan semua views
@@ -338,9 +339,21 @@ function updateAuthUI() {
         authSection.classList.add('hidden');
         mainApp.classList.remove('hidden');
         userProfileBar.classList.remove('hidden');
-        desktopTabBar.classList.remove('hidden');
-        desktopTabBar.classList.add('md:flex');
-        mobileBottomNav.classList.remove('hidden');
+        
+        // Tampilkan Tab Bar & Tombol Tambah Transaksi HANYA jika sudah login
+        if (desktopTabBar) {
+            desktopTabBar.classList.remove('hidden');
+            desktopTabBar.classList.add('md:flex');
+        }
+        if (headerAddBtn) {
+            headerAddBtn.classList.remove('hidden');
+            headerAddBtn.classList.add('md:flex');
+        }
+        if (mobileBottomNav) {
+            mobileBottomNav.classList.remove('hidden');
+            mobileBottomNav.classList.add('flex', 'md:hidden');
+        }
+        
         userNameGreeting.textContent = currentUser.username;
         if (bannerUserName) {
             bannerUserName.textContent = currentUser.username;
@@ -352,8 +365,20 @@ function updateAuthUI() {
         authSection.classList.remove('hidden');
         mainApp.classList.add('hidden');
         userProfileBar.classList.add('hidden');
-        desktopTabBar.classList.add('hidden');
-        mobileBottomNav.classList.add('hidden');
+        
+        // Sembunyikan TOTAL saat belum login (halaman login bersih tanpa tab navigasi & tanpa tombol transaksi)
+        if (desktopTabBar) {
+            desktopTabBar.classList.add('hidden');
+            desktopTabBar.classList.remove('md:flex');
+        }
+        if (headerAddBtn) {
+            headerAddBtn.classList.add('hidden');
+            headerAddBtn.classList.remove('md:flex');
+        }
+        if (mobileBottomNav) {
+            mobileBottomNav.classList.add('hidden');
+            mobileBottomNav.classList.remove('flex', 'md:hidden');
+        }
     }
 }
 
@@ -421,6 +446,11 @@ function renderAll() {
 
 // Modal Form Controllers
 window.openTransactionModal = function(editId = null) {
+    if (!currentUser) {
+        switchAuthTab('login');
+        showAlert('Silakan masuk ke akun Anda terlebih dahulu.', 'info');
+        return;
+    }
     if (editId) {
         startEditTransaction(editId);
     } else {

@@ -126,8 +126,8 @@
                     <i class="fa-solid fa-download text-xs"></i> <span class="hidden sm:inline">Pasang APK</span>
                 </button>
 
-                <!-- Tombol Tambah Cepat di Desktop -->
-                <button id="headerAddBtn" class="hidden md:flex bg-[#a3e635] hover:bg-[#bef264] text-[#0c0f0d] text-xs px-3.5 py-1.5 rounded-full font-black transition items-center gap-1.5 shadow-[0_0_15px_rgba(163,230,53,0.3)]">
+                <!-- Tombol Tambah Cepat di Desktop (Hanya muncul jika sudah login) -->
+                <button id="headerAddBtn" class="hidden bg-[#a3e635] hover:bg-[#bef264] text-[#0c0f0d] text-xs px-3.5 py-1.5 rounded-full font-black transition items-center gap-1.5 shadow-[0_0_15px_rgba(163,230,53,0.3)]">
                     <i class="fa-solid fa-plus font-bold"></i> <span>Transaksi</span>
                 </button>
 
@@ -146,8 +146,8 @@
             </div>
         </div>
 
-        <!-- Desktop Navigation Bar (Sleek Tabs) -->
-        <div id="desktopTabBar" class="hidden max-w-6xl mx-auto px-4 sm:px-6 pt-1 pb-2 border-t border-[#1a211c] md:flex items-center justify-between">
+        <!-- Desktop Navigation Bar (Sleek Tabs - Hanya muncul jika sudah login) -->
+        <div id="desktopTabBar" class="hidden max-w-6xl mx-auto px-4 sm:px-6 pt-1 pb-2 border-t border-[#1a211c] items-center justify-between">
             <div class="flex items-center gap-2">
                 <button data-tab="dashboard" class="nav-tab-btn px-4 py-1.5 rounded-xl text-xs font-extrabold transition flex items-center gap-2 bg-[#a3e635] text-[#0c0f0d] shadow-[0_0_15px_rgba(163,230,53,0.25)]">
                     <i class="fa-solid fa-house"></i> Dashboard
@@ -746,7 +746,7 @@
     <!-- ============================================================== -->
     <!-- MOBILE BOTTOM NAVIGATION BAR (APK / NATIVE APP SHELL)          -->
     <!-- ============================================================== -->
-    <nav id="mobileBottomNav" class="hidden md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#111512]/95 backdrop-blur-lg border-t border-[#202722] py-2 px-3 flex justify-around items-center shadow-2xl">
+    <nav id="mobileBottomNav" class="hidden fixed bottom-0 left-0 right-0 z-40 bg-[#111512]/95 backdrop-blur-lg border-t border-[#202722] py-2 px-3 justify-around items-center shadow-2xl">
         <!-- Tab 1: Dashboard -->
         <button onclick="switchView('dashboard')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-[#a3e635]" data-mobile-tab="dashboard">
             <i class="fa-solid fa-house text-base"></i>
