@@ -20,7 +20,7 @@ backend/.env.*
 # 3. Build Outputs
 dist/
 dist-ssr/
-frontend/dist/
+# frontend/dist/ disertakan agar Vercel dapat langsung menyajikan website production
 *.local
 
 # 4. Logs & Debugging
